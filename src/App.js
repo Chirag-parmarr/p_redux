@@ -1,12 +1,21 @@
-
+import {Link, Route, Routes} from "react-router-dom";
 import './App.css';
-
+import Form from './Components/Form'
 function App() {
   return (
     <div className="App">
-     hi there
+
+
+
+            <Routes>
+                <Route path="/" element={<Form/>}/>
+
+            </Routes>
 
     </div>
+
+
+
   );
 }
 
