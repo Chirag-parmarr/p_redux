@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { sendData } from "../Redux/Action/Action"
+import Table from "./Table";
 
 import './form.css'
 
@@ -18,7 +19,7 @@ const Form = () => {
         value = e.target.value;
         setData({ ...data, [name]: value })
     }
-    
+
     const allData = useSelector((state) => state)
     const dispatch = useDispatch()
 
@@ -41,7 +42,7 @@ const Form = () => {
             email
         }
         dispatch(sendData(Data));
-        
+
 
     }
     return (
@@ -67,7 +68,9 @@ const Form = () => {
                 <button type="text" onClick={onSubmit} className="submit">submit</button>
             </div>
 
-
+            <Table 
+          
+            />
         </>
 
 

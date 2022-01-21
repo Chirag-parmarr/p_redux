@@ -1,7 +1,9 @@
 import React from 'react';
 
-function Data() {
-    return <div>hithere</div>;
+function Data(id) {
+    return 
+    
+    
 }
 
 export default Data;

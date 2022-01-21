@@ -1,11 +1,32 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { deleteData, updateData } from "../Redux/Action/Action"
+
 import './table.css'
+
+
+import Data from "./Data"
+import { Routes, Route } from 'react-router-dom';
 
 function Table() {
 
-    const allData = useSelector((state) => state)
+    const dispatch = useDispatch()
+    const data = useSelector((state) => state)
+    function onDelete(id) {
 
+        //    const newData=data.filter(e=> e.id!==id)
+        dispatch(deleteData(id))
+    }
+
+    function onUpdate(id) {
+        console.log('before', id);
+        <Routes><Route path="/data" element={<Data />} /></Routes>
+        // dispatch(updateData(id))
+    }
+
+    const allData = useSelector((state) => state)
+    //console.log(allData);
 
     return <div>
         <table>
@@ -25,15 +46,15 @@ function Table() {
                     <td>{element.firstname}</td>
                     <td>{element.lastName}</td>
                     <td>{element.email}</td>
-                    <td><button className="innerbtn">Update</button></td>
-                    <td><button className="innerbtn">Delete</button></td>
+                    
+
+                    <td><button onClick={() => { onUpdate(element.id) }} className="innerbtn">Update</button></td>
+                    <td><button onClick={() => { onDelete(element.id) }} className="innerbtn">Delete</button></td>
                 </tr>)}
 
 
 
-                {allData.data.map((e) => {
-                    <td>e.firstname</td>
-                })}
+
             </tbody>
 
 
